@@ -19,6 +19,7 @@ style_input = st.selectbox( "Select Explanation Style", ["Beginner-Friendly", "T
 
 length_input = st.selectbox( "Select Explanation Length", ["Short (1-2 paragraphs)", "Medium (3-5 paragraphs)", "Long (detailed explanation)"] )
 
+# Template for the promt(Dynamic promt).
 template = PromptTemplate.from_template(
     """Please summarize the research paper titled "{paper_input}" with the following specifications:
 Explanation Style: {style_input}
