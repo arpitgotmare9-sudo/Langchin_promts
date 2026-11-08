@@ -12,7 +12,7 @@ model=ChatGroq(
     max_tokens=500
 )
 st.header("Chatbot 🤖")
-
+# For dynamic promt 
 paper_input = st.selectbox( "Select Research Paper Name", ["Attention Is All You Need", "BERT: Pre-training of Deep Bidirectional Transformers", "GPT-3: Language Models are Few-Shot Learners", "Diffusion Models Beat GANs on Image Synthesis"] )
 
 style_input = st.selectbox( "Select Explanation Style", ["Beginner-Friendly", "Technical", "Code-Oriented", "Mathematical"] ) 
