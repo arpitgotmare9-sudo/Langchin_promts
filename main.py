@@ -29,10 +29,18 @@ Explanation Length: {length_input}
     - Use relatable analogies to simplify complex ideas.
 If certain information is not available in the paper, respond with: "Insufficient information available" instead of guessing.
 Ensure the summary is clear, accurate, and aligned with the provided style and length.
-"""
+""",
+input_variables=['paper_input','style_input','length_input']
 )
+
+promt=template.invoke({
+    'paper_input':paper_input,
+    'style_input':style_input,
+    'length_input':length_input
+})
 
 # Output with the button
 if st.button("💡"):
     #result=model.invoke(user_input)
-    st.write(".....")
+    result=model.invoke(promt)
+    st.write(result.content)
