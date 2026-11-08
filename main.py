@@ -2,13 +2,14 @@ from langchain_groq import ChatGroq
 from dotenv import load_dotenv
 import streamlit as st
 from langchain_core.prompts import load_prompt
+from langchain_core.prompts import PromptTemplate
 
 load_dotenv()
 # Made the model object
 model=ChatGroq(
     model="openai/gpt-oss-120b",
     temperature=0.5,
-    max_tokens=100
+    max_tokens=500
 )
 st.header("Chatbot 🤖")
 
@@ -18,7 +19,7 @@ style_input = st.selectbox( "Select Explanation Style", ["Beginner-Friendly", "T
 
 length_input = st.selectbox( "Select Explanation Length", ["Short (1-2 paragraphs)", "Medium (3-5 paragraphs)", "Long (detailed explanation)"] )
 
-template = load_prompt(
+template = PromptTemplate.from_template(
     """Please summarize the research paper titled "{paper_input}" with the following specifications:
 Explanation Style: {style_input}
 Explanation Length: {length_input}
@@ -29,8 +30,7 @@ Explanation Length: {length_input}
     - Use relatable analogies to simplify complex ideas.
 If certain information is not available in the paper, respond with: "Insufficient information available" instead of guessing.
 Ensure the summary is clear, accurate, and aligned with the provided style and length.
-""",
-input_variables=['paper_input','style_input','length_input']
+"""
 )
 
 promt=template.invoke({
