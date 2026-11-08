@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import streamlit as st
 
 load_dotenv()
-
+# Made the model object
 model=ChatGroq(
     model="openai/gpt-oss-120b",
     temperature=0.5,
