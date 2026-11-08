@@ -13,6 +13,7 @@ st.header("Reasearch Tool")
 
 user_input=st.text_input("Enter the promt")
 
+#Output with the button
 if st.button("Summerize"):
     result=model.invoke(user_input)
     st.write(result.content)
