@@ -7,13 +7,13 @@ load_dotenv()
 model=ChatGroq(
     model="openai/gpt-oss-120b",
     temperature=0.5,
-    max_tokens=200
+    max_tokens=100
 )
-st.header("Reasearch Tool")
+st.header("Chatbot!")
 
 user_input=st.text_input("Enter the promt")
 
-#Output with the button
+# Output with the button
 if st.button("Summerize"):
     result=model.invoke(user_input)
     st.write(result.content)
