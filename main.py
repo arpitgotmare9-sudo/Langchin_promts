@@ -1,4 +1,18 @@
 from langchain_groq import ChatGroq
 from dotenv import load_dotenv
+import streamlit as st
 
 load_dotenv()
+
+model=ChatGroq(
+    model="openai/gpt-oss-120b",
+    temperature=0.5,
+    max_tokens=200
+)
+st.header("Reasearch Tool")
+
+user_input=st.text_input("Enter the promt")
+
+if st.button("Summerize"):
+    result=model.invoke(user_input)
+    st.write(result.content)
