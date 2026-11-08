@@ -14,6 +14,6 @@ st.header("Chatbot!")
 user_input=st.text_input("Enter the promt")
 
 # Output with the button
-if st.button("Summerize"):
+if st.button("💡"):
     result=model.invoke(user_input)
     st.write(result.content)
