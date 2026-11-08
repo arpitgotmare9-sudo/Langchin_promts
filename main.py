@@ -9,7 +9,7 @@ model=ChatGroq(
     temperature=0.5,
     max_tokens=100
 )
-st.header("Chatbot!")
+st.header("Chatbot 🤖")
 
 user_input=st.text_input("Enter the promt")
 
