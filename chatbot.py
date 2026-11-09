@@ -12,8 +12,7 @@ load_dotenv(dotenv_path=script_dir / "env.env")
 model=ChatGroq(model="openai/gpt-oss-120b")
 
 chat_history=[
-    SystemMessage(content=''),
-    HumanMessage(content='')
+    SystemMessage(content='You are a helpful assistant')
 ]
 
 
@@ -23,7 +22,7 @@ while True:
         break
     else:
         template=load_prompt(str(script_dir / 'template1.json'))
-        chat_history.append(user_input)
+        chat_history.append(HumanMessage(content=user_input))
         promt=template.invoke({
             'question':chat_history
         })
