@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from langchain_core.prompts import load_prompt
 import streamlit as st
 
+
 script_dir = Path(__file__).resolve().parent
 load_dotenv(dotenv_path=script_dir / "env.env")
 
